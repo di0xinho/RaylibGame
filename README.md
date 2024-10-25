@@ -1,6 +1,6 @@
 # Gra Platformowa napisana przy użyciu biblioteki Raylib
 
-## Projekt zrealizowany w ramach pracy magisterskiej: Analiza Porównawcza Bibliotek do Tworzenia Gier (SFML, Raylib i SDL2)
+### Projekt zrealizowany w ramach pracy magisterskiej: Analiza Porównawcza Bibliotek do Tworzenia Gier (SFML, Raylib i SDL2)
 
 ## Krótki opis projektu
 
@@ -24,14 +24,14 @@ Celem pracy jest dokonanie analizy porównawczej bibliotek Raylib, SFML i SDL2, 
 - badanie opinii społeczności programistów gier - na forach i grupach społecznościowych zostanie zebrana opinia programistów, którzy podzielą się swoim doświadczeniem i preferencjami dotyczącymi poszczególnych bibliotek,
 - zestawienie zalet i wad bibliotek - na podstawie praktycznych testów oraz opinii społeczności powstanie przegląd największych zalet i wyzwań, jakie napotkali użytkownicy każdej z bibliotek.
 
-## Rozpoczęcie Pracy
+# Rozpoczęcie Pracy
 
-# Wymagania Wstępne
+## Wymagania Wstępne
 
 - Kompilator: Visual Studio 2022 lub inny kompatybilny kompilator C++.
 - Vcpkg: menedżer pakietów C/C++ do pobierania i zarządzania bibliotekami.
 
-# Instalacja
+## Instalacja
 
 1. Sklonuj repozytorium na swoje urządzenie:
 
@@ -47,12 +47,12 @@ $ git clone https://github.com/di0xinho/RaylibGame.git
 $ cd RaylibGame
 ```
 
-# Budowanie projektu
+## Budowanie projektu
 
 1. Uruchom plik solucji.
 2. W ustawieniach projektu włącz tryb manifestu vcpkg.
 3. Zbuduj projekt (Kompilacja > Zbuduj Rozwiązanie).
 
-# Uruchamianie Gry
+## Uruchamianie Gry
 
 Po udanym zbudowaniu gry uruchom ją bezpośrednio w Visual Studio (Debugowanie > Uruchomienie z Debugowaniem) lub wykonaj skompilowany plik binarny z poziomu terminala.
