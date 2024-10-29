@@ -1,47 +1,45 @@
 #include "raylib.h"
-#include <iostream>
+#include "Game.h"
+#include "MainMenu.h"
 
-int main(void)
-{
-    int width = 800;
-    int height = 450;
-    InitWindow(width, height, "Gra platformowa - Raylib");
+enum GameState {
+    MAIN_MENU,
+    GAME_PLAY
+};
 
-    // Coordinates of circle
-    int circle_x = width * 0.5;
-    int circle_y = height * 0.5;
-
+int main() {
+    InitWindow(800, 600, "Gra platformowa - Raylib");
     SetTargetFPS(60);
 
-    while (!WindowShouldClose())
-    {
+    GameState currentState = MAIN_MENU;
+
+    Game game;
+    MainMenu mainMenu;
+
+    while (!WindowShouldClose()) {
         BeginDrawing();
-        ClearBackground(WHITE);
-        DrawCircle(circle_x, circle_y, 25, BLUE);
+        ClearBackground(RAYWHITE);
 
-        if (IsKeyDown(KEY_LEFT)) {
-            circle_x -= 10;
+        switch (currentState) {
+        case MAIN_MENU:
+            mainMenu.update();
+            mainMenu.draw();
+            if (mainMenu.startGame) {
+                currentState = GAME_PLAY;
+            }
+            break;
+        case GAME_PLAY:
+            game.update();
+            game.draw();
+            if (game.exitToMenu) {
+                currentState = MAIN_MENU;
+            }
+            break;
         }
-
-        if (IsKeyDown(KEY_RIGHT)) {
-            circle_x += 10;
-        }
-
-        if (IsKeyDown(KEY_DOWN)) {
-            circle_y += 10;
-        }
-
-        if (IsKeyDown(KEY_UP)) {
-            circle_y -= 10;
-        }
-
-
 
         EndDrawing();
     }
 
     CloseWindow();
-
     return 0;
-
 }
