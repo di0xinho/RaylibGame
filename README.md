@@ -30,10 +30,25 @@ Celem pracy jest dokonanie analizy porównawczej bibliotek Raylib, SFML i SDL2, 
 
 - Kompilator: Visual Studio 2022 lub inny kompatybilny kompilator C++.
 - Vcpkg: menedżer pakietów C/C++ do pobierania i zarządzania bibliotekami.
+- CMake: narzędzie do automatycznego zarządzania procesem kompilacji programu.
 
 ## Instalacja
 
-1. Sklonuj repozytorium na swoje urządzenie:
+1. Upewnij się, że masz zainstalowany Vcpkg (jeśli nie - zajrzyj tutaj: https://github.com/microsoft/vcpkg) i skonfiguruj zmienną środowiskową `VCPKG_ROOT` wskazującą na katalog główny Vcpkg. W systemie Windows można to zrobić w następujący sposób:
+
+   - Otwórz Panel sterowania → System i zabezpieczenia → System → Zaawansowane ustawienia systemu.
+   - Kliknij „Zmienne środowiskowe”.
+   - W sekcji „Zmienne systemowe” kliknij „Nowa” i dodaj zmienną:
+     - Nazwa zmiennej: `VCPKG_ROOT`
+     - Wartość zmiennej: [Ścieżka do katalogu głównego Vcpkg]
+
+2. Zainstaluj potrzebne paczki, w tym Raylib, za pomocą Vcpkg:
+
+```bash
+$ vcpkg install raylib
+```
+
+3. Sklonuj repozytorium na swoje urządzenie:
 
 W oknie konsoli wpisz komendę:
 
@@ -41,18 +56,32 @@ W oknie konsoli wpisz komendę:
 $ git clone https://github.com/di0xinho/RaylibGame.git
 ```
 
-2. Przejdź do katalogu z projektem:
+4. Przejdź do katalogu z projektem:
 
 ```bash
 $ cd RaylibGame
 ```
 
+5. Skonfiguruj projekt za pomocą CMake:
+
+```bash
+$ cmake -S . -B build
+```
+
 ## Budowanie projektu
 
-1. Uruchom plik solucji.
-2. W ustawieniach projektu włącz tryb manifestu vcpkg.
-3. Zbuduj projekt (Kompilacja > Zbuduj Rozwiązanie).
+1. Wygeneruj pliki projektu w katalogu build:
+
+```bash
+$ cmake --build build
+```
+
+2. Po zakończeniu budowy, znajdź skompilowany plik wykonywalny w katalogu build/debug (lub build/release, w zależności od wybranej konfiguracji).
 
 ## Uruchamianie Gry
 
-Po udanym zbudowaniu gry uruchom ją bezpośrednio w Visual Studio (Debugowanie > Uruchomienie z Debugowaniem) lub wykonaj skompilowany plik binarny z poziomu terminala.
+Po udanym zbudowaniu gry uruchom ją bezpośrednio w IDE (otwórz plik solucji w katalogu build i wybierz Debugowanie > Uruchomienie z Debugowaniem) lub wykonaj skompilowany plik binarny z poziomu terminala:
+
+```bash
+$ ./build/debug/RaylibGame
+```
