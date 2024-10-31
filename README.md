@@ -62,10 +62,20 @@ $ git clone https://github.com/di0xinho/RaylibGame.git
 $ cd RaylibGame
 ```
 
-5. Skonfiguruj projekt za pomocą CMake:
+5. Stwórz podkatalog "build", a następnie przejdź do niego:
 
 ```bash
-$ cmake -S . -B build
+$ mkdir build
+```
+
+```bash
+$ cd build
+```
+
+6. Uruchom CMake, aby skonfigurować projekt:
+
+```bash
+$ cmake ..
 ```
 
 ## Budowanie projektu
@@ -73,7 +83,7 @@ $ cmake -S . -B build
 1. Wygeneruj pliki projektu w katalogu build:
 
 ```bash
-$ cmake --build build
+$ cmake --build .
 ```
 
 2. Po zakończeniu budowy, znajdź skompilowany plik wykonywalny w katalogu build/debug (lub build/release, w zależności od wybranej konfiguracji).
